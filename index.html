@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Brain | Brain Health Literacy</title>
+
+<!-- GOOGLE ANALYTICS
+     Replace G-XXXXXXXXXX below with your Google Analytics Measurement ID.
+     Then you can see visitors, page views, and completed quizzes in Google Analytics.
+-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<style>
+:root{
+  --navy:#082f49; --blue:#087ea4; --sky:#38bdf8; --cyan:#67e8f9;
+  --ice:#eaf8ff; --bg:#f4fbff; --white:#fff; --ink:#102a43;
+  --muted:#587086; --line:#d9edf7; --shadow:0 16px 45px rgba(8,47,73,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+header{position:sticky;top:0;z-index:20;background:rgba(244,251,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{max-width:1100px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;color:var(--navy);letter-spacing:-.04em}.logo span{color:var(--blue)}
+nav a{color:var(--navy);text-decoration:none;margin-left:22px;font-weight:700;font-size:.92rem}
+.hero{max-width:1100px;margin:auto;padding:72px 22px 55px;display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center}
+.badge{display:inline-block;background:#d8f5ff;color:#075985;border-radius:999px;padding:7px 13px;font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em}
+h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:.94;letter-spacing:-.07em;margin:18px 0;color:var(--navy)}
+h2{font-size:2.1rem;letter-spacing:-.045em;line-height:1.05;margin:0 0 12px;color:var(--navy)}
+h3{margin:8px 0;color:var(--navy)}
+.lead{font-size:1.12rem;color:var(--muted);max-width:650px}
+.btn{display:inline-block;margin-top:12px;border:0;border-radius:15px;background:var(--blue);color:#fff;padding:14px 19px;font-weight:900;text-decoration:none;cursor:pointer;box-shadow:0 9px 20px rgba(8,126,164,.22)}
+.btn:hover{transform:translateY(-1px);background:#066b8b}
+.brain-wrap{position:relative;min-height:390px;display:grid;place-items:center}
+.brain{width:315px;height:275px;border-radius:49% 51% 45% 55%/54% 46% 54% 46%;background:linear-gradient(145deg,#bff6ff,#45c8ec 48%,#087ea4);box-shadow:0 28px 65px rgba(8,126,164,.25);display:grid;place-items:center;font-size:7rem;transform:rotate(-5deg)}
+.bubble{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);padding:10px 15px;border-radius:18px;font-weight:800;color:var(--navy)}
+.b1{top:30px;right:10px}.b2{bottom:55px;left:5px}.b3{bottom:10px;right:25px}
+section{max-width:1100px;margin:auto;padding:58px 22px}
+.quiz-shell{background:linear-gradient(145deg,#063b5c,#087ea4);border-radius:32px;padding:10px;box-shadow:var(--shadow)}
+.quiz-card{background:#fff;border-radius:25px;padding:30px}
+.quiz-intro{display:flex;gap:15px;align-items:center;background:var(--ice);border-radius:18px;padding:15px;margin:18px 0 25px}
+.timer{font-size:1.7rem}
+.question{padding:22px 0;border-bottom:1px solid var(--line)}
+.question:last-of-type{border-bottom:0}
+.qnum{color:var(--blue);font-size:.76rem;text-transform:uppercase;font-weight:900;letter-spacing:.1em}
+.option{display:block;padding:13px 15px;margin:9px 0;border:1.5px solid var(--line);border-radius:15px;cursor:pointer;transition:.15s}
+.option:hover{border-color:var(--sky);background:#f3fcff}
+.option input{margin-right:8px;accent-color:var(--blue)}
+#result{display:none;margin-top:22px;padding:20px;border-radius:18px;background:#e4f8ff;border:1px solid #b7eaf7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.topic{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 9px 28px rgba(8,47,73,.06);transition:.2s}
+.topic:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.icon{font-size:2.3rem}
+.topic a{color:var(--blue);font-weight:900;text-decoration:none}
+.fact{background:var(--navy);color:#fff;border-radius:28px;padding:30px}
+.fact h2{color:#fff}.fact p{color:#d8edf7}
+.notice{background:#fff;border:1px solid var(--line);border-radius:25px;padding:27px;box-shadow:0 8px 25px rgba(8,47,73,.05)}
+.sources a{color:var(--blue)}
+footer{background:var(--navy);color:#cfe6f1;padding:35px 22px;margin-top:40px}
+footer strong{color:#fff}
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:48px}.brain{width:245px;height:215px;font-size:5.5rem}.brain-wrap{min-height:300px}
+  .grid{grid-template-columns:1fr}nav a{margin-left:9px;font-size:.8rem}
+  .quiz-card{padding:20px}section{padding:42px 16px}
+}
+</style>
+</head>
+
+<body>
+<header>
+<nav>
+<div class="logo">🧠 <span>Know Your Brain</span></div>
+<div><a href="#quiz">Quiz</a><a href="#explore">Explore</a><a href="#sources">Sources</a></div>
+</nav>
+</header>
+
+<main>
+<section class="hero">
+<div>
+<span class="badge">Brain health • made interesting</span>
+<h1>How well do you know your brain?</h1>
+<p class="lead">Your brain is doing something weird, complicated, and fascinating basically all the time. Take the 60-second challenge, then follow your curiosity.</p>
+<a class="btn" href="#quiz">Start the brain challenge →</a>
+</div>
+<div class="brain-wrap">
+<div class="brain">🧠</div>
+<div class="bubble b1">Sleep 💤</div>
+<div class="bubble b2">Memory ✨</div>
+<div class="bubble b3">Anesthesia 💉</div>
+</div>
+</section>
+
+<section id="quiz">
+<div class="quiz-shell">
+<div class="quiz-card">
+<span class="badge">60-second challenge</span>
+<h2>Would your brain ace this?</h2>
+<p>These aren't “name the part of the brain” questions. They're real-life brain questions designed to make you curious.</p>
+<div class="quiz-intro"><div class="timer">⏱️</div><div><strong>Don't Google it.</strong><br>Go with your best guess — the explanations are the fun part.</div></div>
+
+<form id="quizForm">
+<div class="question">
+<div class="qnum">Question 01</div>
+<strong>You pull an all-nighter before an exam. Which brain function is most likely to take a hit?</strong>
+<label class="option"><input type="radio" name="q1" value="a"> Attention, learning, and remembering information</label>
+<label class="option"><input type="radio" name="q1" value="b"> Your brain's ability to produce oxygen</label>
+<label class="option"><input type="radio" name="q1" value="c"> Your ability to make new bones</label>
+</div>
+
+<div class="question">
+<div class="qnum">Question 02</div>
+<strong>You finally get a full night's sleep after studying. Why can that help what you learned “stick”?</strong>
+<label class="option"><input type="radio" name="q2" value="a"> Sleep supports memory consolidation and learning</label>
+<label class="option"><input type="radio" name="q2" value="b"> Your brain permanently saves every memory during sleep</label>
+<label class="option"><input type="radio" name="q2" value="c"> Your neurons stop communicating so memories cannot change</label>
+</div>
+
+<div class="question">
+<div class="qnum">Question 03</div>
+<strong>Imagine you wake up after surgery and feel unusually confused and can't pay attention. What is one possible explanation doctors may consider?</strong>
+<label class="option"><input type="radio" name="q3" value="a"> Postoperative delirium</label>
+<label class="option"><input type="radio" name="q3" value="b"> Your brain has stopped making neurons</label>
+<label class="option"><input type="radio" name="q3" value="c"> Normal REM sleep</label>
+</div>
+
+<div class="question">
+<div class="qnum">Question 04</div>
+<strong>Which statement about anesthesia and the brain is the most accurate?</strong>
+<label class="option"><input type="radio" name="q4" value="a"> Most cognitive effects are temporary, but some people can experience longer-lasting problems after surgery</label>
+<label class="option"><input type="radio" name="q4" value="b"> General anesthesia permanently damages the brain in everyone</label>
+<label class="option"><input type="radio" name="q4" value="c"> Anesthesia has absolutely no relationship to cognitive changes around surgery</label>
+</div>
+
+<div class="question">
+<div class="qnum">Question 05</div>
+<strong>Your friend suddenly has trouble speaking and one side of their face droops. What should you think about?</strong>
+<label class="option"><input type="radio" name="q5" value="a"> A possible stroke — seek emergency medical help</label>
+<label class="option"><input type="radio" name="q5" value="b"> They probably just need to sleep</label>
+<label class="option"><input type="radio" name="q5" value="c"> This is a normal effect of stress</label>
+</div>
+
+<button class="btn" type="submit">Reveal my brain score 🧠</button>
+</form>
+<div id="result"></div>
+</div>
+</div>
+</section>
+
+<section id="explore">
+<span class="badge">Follow your curiosity</span>
+<h2>Okay, but WHY?</h2>
+<p class="lead">Pick the question that made you think twice.</p>
+<div class="grid">
+<article class="topic"><div class="icon">🌙</div><h3>Why does your brain need sleep?</h3><p>What happens to memory, attention, and brain function when you don't get enough?</p><a href="#sleep">Let's get into it →</a></article>
+<article class="topic"><div class="icon">💉</div><h3>Can anesthesia affect your brain afterward?</h3><p>What we know about short-term effects, delirium, and longer-lasting cognitive changes.</p><a href="#anesthesia">Let's get into it →</a></article>
+<article class="topic"><div class="icon">🧩</div><h3>Why do you forget why you walked into a room?</h3><p>A quick look at attention, working memory, and how memories are formed.</p><a href="#memory">Let's get into it →</a></article>
+</div>
+</section>
+
+<section>
+<div class="fact">
+<span class="badge">Brain fact</span>
+<h2>Your brain doesn't “turn off” when you sleep.</h2>
+<p>Sleep changes brain activity rather than simply shutting it down. Different stages of sleep are associated with different patterns of brain activity and support processes involved in learning and memory.</p>
+</div>
+</section>
+
+<section id="sleep">
+<div class="notice">
+<span class="badge">01 • Sleep</span>
+<h2>What actually happens to your brain while you sleep?</h2>
+<p>Sleep is an active biological process. Getting enough sleep supports attention, learning, memory, and normal brain function. When you're sleep deprived, tasks that depend on attention, decision-making, learning, and remembering can become harder.</p>
+<p><strong>The interesting part:</strong> Sleep is not just “resting your brain.” Your brain is still active and processing information while you sleep.</p>
+</div>
+</section>
+
+<section id="anesthesia">
+<div class="notice">
+<span class="badge">02 • Anesthesia</span>
+<h2>Can anesthesia have effects after you wake up?</h2>
+<p>Yes, but the story is more complicated than “anesthesia damages your brain.” Many cognitive effects around anesthesia and surgery are temporary. Some patients — particularly older adults — can develop postoperative delirium, and some can experience cognitive problems that persist longer.</p>
+<p><strong>Why is this complicated?</strong> Anesthesia is only one part of the picture. Surgery, illness, inflammation, medications, sleep disruption, pain, and other factors can also affect cognition. Researchers continue to study exactly how these factors interact.</p>
+</div>
+</section>
+
+<section id="memory">
+<div class="notice">
+<span class="badge">03 • Memory</span>
+<h2>Why did you walk into a room and forget why?</h2>
+<p>Sometimes the problem isn't that a memory disappeared — you may not have fully encoded the information in the first place. Attention helps determine what information gets processed and stored, while working memory helps you temporarily hold and manipulate information.</p>
+<p><strong>Try it:</strong> Next time you walk into a room, pause and notice what you were thinking about immediately beforehand.</p>
+</div>
+</section>
+
+<section id="sources">
+<div class="notice sources">
+<span class="badge">The science</span>
+<h2>Want to go deeper?</h2>
+<p>This project is for health education and does not diagnose or treat medical conditions.</p>
+<ul>
+<li><a href="https://www.nhlbi.nih.gov/health/sleep-deprivation/health-effects" target="_blank">NIH / NHLBI — Sleep deprivation and health effects</a></li>
+<li><a href="https://www.nia.nih.gov/health/sleep/sleep-and-older-adults" target="_blank">NIH / NIA — Sleep and older adults</a></li>
+<li><a href="https://madeforthismoment.asahq.org/anesthesia-101/effects-of-anesthesia/" target="_blank">American Society of Anesthesiologists — Effects of anesthesia</a></li>
+<li><a href="https://www.nia.nih.gov/news/researchers-test-new-approaches-prevent-delirium" target="_blank">NIH / NIA — Postoperative delirium</a></li>
+<li><a href="https://www.cdc.gov/stroke/signs-symptoms/index.html" target="_blank">CDC — Stroke signs and symptoms</a></li>
+</ul>
+</div>
+</section>
+</main>
+
+<footer>
+<strong>🧠 Know Your Brain</strong><br>
+A brain-health literacy project designed to make neuroscience easier to understand.
+</footer>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const answers={q1:"a",q2:"a",q3:"a",q4:"a",q5:"a"};
+  let score=0;
+  for(const q in answers){
+    const picked=document.querySelector('input[name="'+q+'"]:checked');
+    if(picked && picked.value===answers[q]) score++;
+  }
+
+  // Sends a "quiz_complete" event to Google Analytics.
+  // This lets you count completed quizzes separately from general visitors.
+  if(typeof gtag === "function"){
+    gtag("event","quiz_complete",{quiz_name:"brain_challenge",score:score});
+  }
+
+  let title,body;
+  if(score===5){
+    title="5/5 — Brain Expert Energy 🧠";
+    body="You came prepared. Now the real challenge: explore the explanations and see whether you can teach someone else what you learned.";
+  } else if(score>=3){
+    title=score+"/5 — Your brain is curious 👀";
+    body="Pretty solid! You got enough right to know what to be curious about. Pick a topic below and dive deeper.";
+  } else {
+    title=score+"/5 — Perfect. Now you have questions.";
+    body="That's what this site is for. Explore the topics below and come back later to see what you remember.";
+  }
+
+  const result=document.getElementById("result");
+  result.innerHTML="<strong>"+title+"</strong><br>"+body;
+  result.style.display="block";
+  result.scrollIntoView({behavior:"smooth",block:"center"});
+});
+</script>
+</body>
+</html>
